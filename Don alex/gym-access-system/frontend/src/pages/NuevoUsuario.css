@@ -1,0 +1,720 @@
+/* NuevoUsuario.css - VERSIÓN OSCURA MEJORADA */
+
+.form-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: transparent;
+}
+
+.form-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333333;
+  overflow: hidden;
+}
+
+/* Mensaje de error */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #ef4444;
+  margin: 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Secciones del formulario */
+.form-section {
+  padding: 2.5rem 2rem;
+  border-bottom: 1px solid #2a2a2a;
+  background: transparent;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+}
+
+.form-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-section-title svg {
+  color: #667eea;
+}
+
+/* Subida de foto */
+.photo-upload {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.photo-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+  border: 2px dashed #404040;
+  border-radius: 16px;
+  background: #252525;
+  color: #a1a1a1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 240px;
+  text-align: center;
+}
+
+.photo-upload-label:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+}
+
+.photo-upload-label svg {
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.photo-upload-label:hover svg {
+  transform: scale(1.1);
+}
+
+.photo-upload-label span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.photo-upload-label small {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.photo-input {
+  display: none;
+}
+
+.photo-preview {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 3px solid #333333;
+  transition: all 0.3s ease;
+}
+
+.photo-preview:hover {
+  border-color: #667eea;
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-remove {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(239, 68, 68, 0.95);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.photo-remove:hover {
+  background: #ef4444;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Grid del formulario */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-weight: 600;
+  color: #e5e5e5;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  letter-spacing: -0.2px;
+}
+
+.input {
+  padding: 0.875rem 1rem;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #252525;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #6b6b6b;
+}
+
+.input:hover {
+  border-color: #404040;
+  background: #2a2a2a;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background: #2a2a2a;
+}
+
+.input:required {
+  border-left: 3px solid #667eea;
+}
+
+/* Select */
+.form-select,
+select.input {
+  padding: 0.875rem 1rem;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #252525;
+  color: #ffffff;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a1a1a1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 20px;
+  padding-right: 2.5rem;
+}
+
+.form-select:hover,
+select.input:hover {
+  border-color: #404040;
+  background-color: #2a2a2a;
+}
+
+.form-select:focus,
+select.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+  background-color: #2a2a2a;
+}
+
+.form-select option {
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
+/* Sección de huella digital */
+.fingerprint-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 240px;
+  background: #252525;
+  border-radius: 16px;
+  border: 2px dashed #404040;
+  transition: all 0.3s ease;
+}
+
+.fingerprint-section:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.fingerprint-capture,
+.fingerprint-captured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.fingerprint-icon {
+  color: #404040;
+  transition: all 0.3s ease;
+}
+
+.fingerprint-icon.success {
+  color: #10b981;
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.5));
+}
+
+.fingerprint-capture p,
+.fingerprint-captured p {
+  color: #a1a1a1;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Vista previa del plan */
+.plan-preview {
+  background: #252525;
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin-top: 1.5rem;
+  border: 1px solid #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.plan-preview h4 {
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plan-preview-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid #333333;
+  transition: all 0.3s ease;
+}
+
+.preview-item:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  transform: translateY(-2px);
+}
+
+.preview-item span {
+  color: #a1a1a1;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.preview-item strong {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Botones de acción */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: #252525;
+  border-top: 1px solid #333333;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6366f1, #667eea);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #404040;
+  color: #6b6b6b;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #1a1a1a;
+  color: #e5e5e5;
+  border: 2px solid #333333;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #2a2a2a;
+  border-color: #667eea;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+/* Estados de carga */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s infinite;
+}
+
+/* Spinner de carga */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Información adicional */
+.field-hint {
+  font-size: 0.875rem;
+  color: #6b6b6b;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field-error {
+  font-size: 0.875rem;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Success message */
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #10b981;
+  margin: 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Info message */
+.info-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3b82f6;
+  margin: 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Warning message */
+.warning-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #f59e0b;
+  margin: 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Estados de validación */
+.input:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.input:valid:not(:placeholder-shown):not(:focus) {
+  border-color: #10b981;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: rgba(102, 126, 234, 0.15);
+  color: #6366f1;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .form-section {
+    padding: 1.75rem 1.25rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+    padding: 1.5rem;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+  
+  .plan-preview-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-preview {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .photo-upload-label {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .form-section-title {
+    font-size: 1.1rem;
+  }
+  
+  .input,
+  .form-select,
+  select.input {
+    font-size: 0.95rem;
+    padding: 0.75rem 0.875rem;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary,
+  .input,
+  .photo-upload-label,
+  .preview-item,
+  .fingerprint-section {
+    transition: none;
+  }
+  
+  .loading,
+  .loading-spinner {
+    animation: none;
+  }
+}
+
+/* Focus visible para accesibilidad */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Scrollbar personalizado */
+.form-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.form-card::-webkit-scrollbar-track {
+  background: #0f0f0f;
+  border-radius: 0 0 16px 0;
+}
+
+.form-card::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+.form-card::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Textarea */
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* Dividers */
+.form-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #333333, transparent);
+  margin: 2rem 0;
+}
+
+/* Input number arrows ocultos */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;  
+}
+
+/* ========== FORZAR ESTILOS OSCUROS ========== */
+/* Esto sobrescribe cualquier otro CSS que pueda estar interfiriendo */
+
+.form-container,
+.form-container * {
+  color: inherit;
+}
+
+.form-card,
+.form-section,
+.photo-upload,
+.fingerprint-section,
+.plan-preview {
+  background-color: inherit !important;
+}
+
+/* Asegurar que los inputs NO tengan bordes azules por defecto */
+input:not(:focus),
+select:not(:focus),
+textarea:not(:focus) {
+  border-color: #333333 !important;
+}
+
+/* Solo en focus deben ser violetas */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #667eea !important;
+}

@@ -1,0 +1,23 @@
+/* UsuariosBackground.css */
+.usuarios-container-bg {
+    background: 
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.93) 0%,
+            rgba(255, 255, 255, 0.96) 100%
+        ),
+        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Override cualquier estilo que pueda estar interfiriendo */
+.usuarios-container-bg * {
+    box-sizing: border-box;
+}

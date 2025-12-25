@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  nombre           String
+  apellido         String
+  email            String     @unique
+  telefono         String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  dispositivoId    Int?
+  huellaRegistrada Boolean    @default(false)
+  id               Int        @id @default(autoincrement())
+  cedula           String?    @unique
+  foto             String?
+  huellaTemplate   String?
+  accesos          Acceso[]
+  membresia        Membresia?
+}
+
+model Acceso {
+  fechaHora   DateTime
+  tipo        String
+  createdAt   DateTime @default(now())
+  dispositivo String
+  verificado  Boolean  @default(false)
+  id          Int      @id @default(autoincrement())
+  usuarioId   Int
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+}
+
+model Membresia {
+  fechaInicio DateTime
+  fechaFin    DateTime
+  estado      String   @default("ACTIVA")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  usuarioId   Int      @unique
+  planId      Int
+  plan        Plan     @relation(fields: [planId], references: [id])
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+}
+
+model Plan {
+  id          Int         @id @default(autoincrement())
+  nombre      String
+  precio      Float
+  duracion    Int
+  descripcion String
+  popular     Boolean     @default(false)
+  features    String[]
+  color       String      @default("#4f46e5")
+  estado      String      @default("activo")
+  creado      DateTime    @default(now())
+  actualizado DateTime    @updatedAt
+  activo      Boolean     @default(true)
+  membresias  Membresia[]
+
+  @@map("planes")
+}
+
+model Administrador {
+  password  String
+  nombre    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  id        Int      @id @default(autoincrement())
+  usuario   String   @unique
+}
