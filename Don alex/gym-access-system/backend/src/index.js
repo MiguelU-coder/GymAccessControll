@@ -3,7 +3,12 @@ const cors = require('cors');
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: ['https://tudominio.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // ✅ CORREGIDO: Importa y usa las rutas de auth
@@ -31,8 +36,8 @@ app.use('/api/dashboard', authMiddleware, dashboardRoutes);
 
 // Ruta pública de health check
 app.get('/', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+  res.json({
+    status: 'OK',
     message: 'MINDO FITNESS API - Backend funcionando',
     timestamp: new Date().toISOString()
   });
